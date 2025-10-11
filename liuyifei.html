@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #f5f7fb;
+      color: #333;
+    }
+    header {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { margin: 0; font-size: 1.4rem; }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    article {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    article:hover { transform: translateY(-4px); }
+    article h2 { margin: 0 0 .5rem; }
+    .meta { font-size: 0.9rem; color: #777; }
+    footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin: 3rem 0 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Minimal Blog</h1>
+    <nav>
+      <a href="#" style="color:#fff;text-decoration:none;margin-left:1rem;">Home</a>
+      <a href="#" style="color:#fff;text-decoration:none;margin-left:1rem;">About</a>
+    </nav>
+  </header>
+
+  <main id="blog">
+    <article onclick="openPost(this)">
+      <h2>Post One</h2>
+      <div class="meta">January 2, 2025</div>
+      <p>{{content}}</p>
+    </article>
+    <article onclick="openPost(this)">
+      <h2>Post Two</h2>
+      <div class="meta">February 14, 2025</div>
+      <p>{{content}}</p>
+    </article>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Minimal Blog
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    function openPost(el) {
+      alert("Opening: " + el.querySelector("h2").textContent);
+    }
+  </script>
+</body>
+</html>
